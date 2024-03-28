@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="website.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="content">
+      <h1>Welcome to my weather app</h1>
+      <div class="current-display">
+        <h2 class="display-current-conditions header">Current Conditions for:</h2>
+        <h3 class="current-location header"></h3>
+        <h3 class="current-condition header"></h3>
+        <h3 class="current-temp header"></h3>
+        <form id="search-location">
+          <label for="location-input">Search weather by location:</label>
+          <input type="text" id="location-input" name="location-input" />
+          <button type="submit" class="btn">Search</button>
+        </form>
+      </div>
+      <form id="temp-conversion">
+        <label for="fahrenheit">Fahrenheit</label>
+        <input type="radio" id="fahrenheit" name="temperature" checked />
+        <label for="celsius" name="celsius">Celsius</label>
+        <input type="radio" id="celsius" name="temperature" />
+      </form>
+    </div>
+    Powered by:
+    <a href="https://www.weatherapi.com/" title="Free Weather API"
+      >WeatherAPI.com</a
+    >
+    <div class="footer"></div>
+  </body>
+</html>

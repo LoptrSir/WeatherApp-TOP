@@ -1,0 +1,5 @@
+WeatherApp
+3/27/24
+
+3/28 1304: got carried away banging out code and forgot to commit prior work. copied current code into new file website2.js, reverted website.js back to yesterday and committed.
+3/27 1516: Generated basic files.  fetchWeather() works on default url at this point.  

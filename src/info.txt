@@ -1,7 +1,8 @@
 WeatherApp
 -started 3/27/24
 
-3/29 1325: fixes made: input field clears after submit, temp change radios keep current location.
+3/29 1606: broken up into modules. search worked but clicking radiobutton triggered to defaultlocation. modifying this to keep currentLocation in place is now causing search to throw error assignment to constant variable.  the declaration is let not const,, will try again tomorrow.
+1325: fixes made: input field clears after submit, temp change radios keep current location.
 1305: added random gif based on location condition.
 1053: temp radiobuttons work, 
 3/28 1304: got carried away banging out code and forgot to commit prior work. copied current code into new file website2.js, reverted website.js back to yesterday and committed.

@@ -1,20 +1,5 @@
 //WeatherApp
 
-//TODO
-//fetchWeather() to accept input
-//giphy function
-//temp button logic
-
-
-      //misc apikey url stuff
-// weatherApp search example for bulk 'http://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=bulk'
-//how to modify this url for my search?
-//weatherBaseUrl = 'Base URL: http://api.weatherapi.com/v1'
-//Current Weather: /current.json
-//currentWeather zipcode: https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=ZIP_CODE
-// https://api.weatherapi.com/v1/current.json?key=9a15cd9d2f10400dbc7152440242003&q=ZIP_CODE
-// `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${searchResult}`
-
 //website.js
 
 //Declarations
@@ -24,31 +9,28 @@ const currentCondition = document.querySelector(".current-condition");
 const currentTemp = document.querySelector(".current-temp");
 const radioButtonF = document.getElementById('fahrenheit');  //can this be consolidated into queryselectorall and still function
 const radioButtonC = document.getElementById('celsius');
-
-const defaultLocation = `https://api.weatherapi.com/v1/current.json?key=9a15cd9d2f10400dbc7152440242003&q=84129`;
-
+const gif = document.querySelector('.gif');
 const defaultGifSearch = "random weather";
 const weatherApiKey = "9a15cd9d2f10400dbc7152440242003";
+const defaultLocation = `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=84129`;
 const gifyApiKey = "OLRY4DR4fNBTQXbcI1NBFibXOW6q39k7";
 
 //functions
-
-// create validateLocation (input) {
-//    validate/reject input
-//  return result
-//  }
-
 const fetchWeather = async (displayLocation, temperatureUnit) => {
   try {
+      //fetch and display weather
     const response = await fetch(displayLocation, { mode: "cors" });
     const data = await response.json();
     const temperature = (temperatureUnit === 'fahrenheit') ? data.current.temp_f + ' F' : data.current.temp_c + ' C';
-    currentLocation.innerHTML = data.location.name;
+    currentLocation.innerHTML = data.location.name + ', ' + data.location.region;
     currentCondition.innerHTML = data.current.condition.text;
     currentTemp.innerHTML = temperature;
-
-
-    console.log(data);
+      //fetch and display GIF
+    const gifUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${gifyApiKey}&s=${encodeURIComponent(currentCondition.innerHTML)}`;
+    const fetchGif = await fetch(gifUrl, { mode: 'cors'});
+    const returnedGif = await fetchGif.json();
+    console.log('fetchGif:', fetchGif);
+   gif.src = returnedGif.data.images.original.url;
   } catch (error) {
     console.error("this is an error", error);
   }
@@ -57,22 +39,22 @@ const fetchWeather = async (displayLocation, temperatureUnit) => {
 //eventListeners
 radioButtonF.addEventListener('change', function() {
   if (this.checked) {
-    fetchWeather(defaultLocation, 'fahrenheit');
+    fetchWeather(displayLocation, 'fahrenheit');
   }
 });
 
 radioButtonC.addEventListener('change', function() {
   if (this.checked) {
-    fetchWeather(defaultLocation, 'celsius');
+    fetchWeather(displayLocation, 'celsius');
   }
 });
 
 locationForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  // get input
-  //call validateInputFunction pass input
-  // call searchfunction and pass input
-  // clear input
+  const location = document.getElementById('location-input').value;
+  const weatherApiUrl = `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${encodeURIComponent(location)}`;
+  fetchWeather(weatherApiUrl, 'fahrenheit'); 
+  document.getElementById("location-input").value = '';
 });
 
 
@@ -91,30 +73,3 @@ export function myFooter() {
 
 myFooter();
 fetchWeather(defaultLocation, 'fahrenheit');
-
-    //TOBE created Funtcions
-//const fetchGif = async (searchGif) => {
-//MODIFY this as needed
-//   try {
-//     const response = await fetch(searchGif, { mode: "cors" });
-//     const data = await response.json();
-//     img.src = data.data.images.original.url;
-//   } catch (error) {
-//     console.error("Error fetching GIF:", error);
-//   }
-// };
-
-// function defaultGifLoader() {
-//   const defaultUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${gifyApiKey}&s=${defaultGifSearch}`;
-//   console.log("newGifBtn:", defaultUrl);
-//   fetchGif(defaultUrl);
-// }
-
-//function searchGifLoader() {
-//   let searchTerm = document.getElementById("search-input").value;
-//   console.log("submitBtn searchTerm:", searchTerm);
-//   const modifiedUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${searchTerm}`;
-//   console.log("submitBtn:", modifiedUrl);
-//   fetchGif(modifiedUrl);
-//   document.getElementById("search-input").value = "";
-// }

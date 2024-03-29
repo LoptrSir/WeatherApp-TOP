@@ -1,12 +1,12 @@
 //WeatherApp
 
 //TODO
-
 //fetchWeather() to accept input
 //giphy function
 //temp button logic
 
 
+      //misc apikey url stuff
 // weatherApp search example for bulk 'http://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=bulk'
 //how to modify this url for my search?
 //weatherBaseUrl = 'Base URL: http://api.weatherapi.com/v1'
@@ -18,53 +18,82 @@
 //website.js
 
 //Declarations
-const form = document.getElementById('search-location');
-let currentLocation = document.querySelector('.current-location');
-let currentCondition = document.querySelector('.current-condition')
-
-const defaultGifSearch = 'random weather';
-const weatherApiKey = '9a15cd9d2f10400dbc7152440242003';
-const gifyApiKey = "OLRY4DR4fNBTQXbcI1NBFibXOW6q39k7";
+const locationForm = document.getElementById("search-location");
+const currentLocation = document.querySelector(".current-location");
+const currentCondition = document.querySelector(".current-condition");
+const currentTemp = document.querySelector(".current-temp");
+const radioButtonF = document.getElementById('fahrenheit');  //can this be consolidated into queryselectorall and still function
+const radioButtonC = document.getElementById('celsius');
 
 const defaultLocation = `https://api.weatherapi.com/v1/current.json?key=9a15cd9d2f10400dbc7152440242003&q=84129`;
 
-
-
-//eventListeners
-form.addEventListener('submit', function(e){
-  e.preventDefault();
-  // get input
-  //call validateInputFunction pass input
-  // call searchfunction and pass input
-  // clear input
-})
+const defaultGifSearch = "random weather";
+const weatherApiKey = "9a15cd9d2f10400dbc7152440242003";
+const gifyApiKey = "OLRY4DR4fNBTQXbcI1NBFibXOW6q39k7";
 
 //functions
-
 
 // create validateLocation (input) {
 //    validate/reject input
 //  return result
 //  }
 
-const fetchWeather = async (defaultLocation) => {
+const fetchWeather = async (displayLocation, temperatureUnit) => {
   try {
-    const response = await fetch(defaultLocation, {mode: 'cors'});
+    const response = await fetch(displayLocation, { mode: "cors" });
     const data = await response.json();
+    const temperature = (temperatureUnit === 'fahrenheit') ? data.current.temp_f + ' F' : data.current.temp_c + ' C';
     currentLocation.innerHTML = data.location.name;
     currentCondition.innerHTML = data.current.condition.text;
-          
-      console.log(data);
-  }
-     catch (error){
-    console.error('this is an error',error);
-  }
-//  console.log(data);
-     //  current.condition.text
-     
-  }
+    currentTemp.innerHTML = temperature;
 
-//create const fetchGif = async (searchGif) => {
+
+    console.log(data);
+  } catch (error) {
+    console.error("this is an error", error);
+  }
+};
+
+//eventListeners
+radioButtonF.addEventListener('change', function() {
+  if (this.checked) {
+    fetchWeather(defaultLocation, 'fahrenheit');
+  }
+});
+
+radioButtonC.addEventListener('change', function() {
+  if (this.checked) {
+    fetchWeather(defaultLocation, 'celsius');
+  }
+});
+
+locationForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  // get input
+  //call validateInputFunction pass input
+  // call searchfunction and pass input
+  // clear input
+});
+
+
+export function myFooter() {
+  const footer = document.querySelector(".footer");
+  footer.style.backgroundColor = "#333";
+  footer.style.fontSize = "1rem";
+  footer.style.color = "#f8afe5";
+  footer.style.padding = "3px";
+  footer.style.textAlign = "center";
+  footer.style.position = "fixed";
+  footer.style.width = "100%";
+  footer.style.bottom = "0";
+  footer.innerHTML = "LoptrSir";
+}
+
+myFooter();
+fetchWeather(defaultLocation, 'fahrenheit');
+
+    //TOBE created Funtcions
+//const fetchGif = async (searchGif) => {
 //MODIFY this as needed
 //   try {
 //     const response = await fetch(searchGif, { mode: "cors" });
@@ -89,22 +118,3 @@ const fetchWeather = async (defaultLocation) => {
 //   fetchGif(modifiedUrl);
 //   document.getElementById("search-input").value = "";
 // }
-
-
-export function myFooter() {
-  const footer = document.querySelector(".footer");
-  footer.style.backgroundColor = "#333";
-  footer.style.fontSize = "1rem";
-  footer.style.color = "#f8afe5";
-  footer.style.padding = "3px";
-  footer.style.textAlign = "center";
-  footer.style.position = "fixed";
-  footer.style.width = "100%";
-  footer.style.bottom = "0";
-  footer.innerHTML = "LoptrSir";
-}
-
-
-
-myFooter();
-fetchWeather(defaultLocation);

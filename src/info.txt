@@ -1,6 +1,7 @@
 WeatherApp
 -started 3/27/24
 
+4/2 1335 modules set and function. Working on styling. WeatherAPI placed at bottom.
 3/29 1606: broken up into modules. search worked but clicking radiobutton triggered to defaultlocation. modifying this to keep currentLocation in place is now causing search to throw error assignment to constant variable.  the declaration is let not const,, will try again tomorrow.
 1325: fixes made: input field clears after submit, temp change radios keep current location.
 1305: added random gif based on location condition.

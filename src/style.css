@@ -57,3 +57,9 @@ input {
   margin-left: 0px;
   width: 10vw;
 }
+
+.weather-api-link {
+  display: inline;
+  position: absolute;
+  bottom: 1vh;
+}

@@ -2,56 +2,45 @@
 //Weather Logic Module
 //weather.js
 
-//Imports 
-import { attachEventListeners } from './ui.js'
+//Imports
 import {
-    locationForm,
-    currentLocation,
-    currentCondition,
-    currentTemp,
-    radioButtonF,
-    radioButtonC,
-    gif,
-    defaultGifSearch,
-    weatherApiKey,
-    defaultLocation,
-    gifyApiKey,
-} from './website.js';
+  currentLocation,
+   radioButtonF,
+ } from "./ui.js";
 
-// //Deeclarations
-// const locationForm = document.getElementById("search-location");
-// const currentLocation = document.querySelector(".current-location");
-// const currentCondition = document.querySelector(".current-condition");
-// const currentTemp = document.querySelector(".current-temp");
-// const radioButtonF = document.getElementById('fahrenheit');  //can this be consolidated into queryselectorall and still function
-// const radioButtonC = document.getElementById('celsius');
-// const gif = document.querySelector('.gif');
-// const defaultGifSearch = "random weather";
-// const weatherApiKey = "9a15cd9d2f10400dbc7152440242003";
-// const defaultLocation = `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=84129`;
-// const gifyApiKey = "OLRY4DR4fNBTQXbcI1NBFibXOW6q39k7";
+// //Declarations
+export const currentCondition = document.querySelector(".current-condition");
+export const currentTemp = document.querySelector(".current-temp");
+export const gif = document.querySelector(".gif");
+export const defaultGifSearch = "random weather";
+export const gifyApiKey = "OLRY4DR4fNBTQXbcI1NBFibXOW6q39k7";
 
-//functions
+//Functions
 export const fetchWeather = async (displayLocation, temperatureUnit) => {
-    try {
-        //fetch and display weather
-      const response = await fetch(displayLocation, { mode: "cors" });
-      const data = await response.json();
-      const temperature = (temperatureUnit === 'fahrenheit') ? data.current.temp_f + ' F' : data.current.temp_c + ' C';
-      currentLocation.innerHTML = data.location.name + ', ' + data.location.region;
-      currentCondition.innerHTML = data.current.condition.text;
-      currentTemp.innerHTML = temperature;
-        //fetch and display GIF
-    //   const gifUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${gifyApiKey}&s=${encodeURIComponent(currentCondition.innerHTML)}`;
-    //   const fetchGif = await fetch(gifUrl, { mode: 'cors'});
-    //   const returnedGif = await fetchGif.json();
-    //   console.log('fetchGif:', fetchGif);
-    //  gif.src = returnedGif.data.images.original.url;
+  try {
+    //fetch and display weather
+    const response = await fetch(displayLocation, { mode: "cors" });
+    const data = await response.json();
+    const temperature =
+      temperatureUnit === "fahrenheit"
+        ? ((radioButtonF.checked = true), data.current.temp_f + " F")
+        : data.current.temp_c + " C";
+    currentLocation.innerHTML =
+      data.location.name + ", " + data.location.region;
+    currentCondition.innerHTML = data.current.condition.text;
+    currentTemp.innerHTML = temperature;
 
-    //  attachEventListeners(displayLocation);
-    } catch (error) {
-      console.error("this is an error", error);
-    }
-  };
+    //fetch and display GIF
+    // const gifUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${gifyApiKey}&s=${encodeURIComponent(
+    //   currentCondition.innerHTML
+    // )}`;
+    // const fetchGif = await fetch(gifUrl, { mode: "cors" });
+    // const returnedGif = await fetchGif.json();
+    // console.log("fetchGif:", fetchGif);
+    // gif.src = returnedGif.data.images.original.url;
 
-//    attachEventListeners();
+    console.log("fetchWeather:", currentLocation);
+  } catch (error) {
+    console.error("this is an error", error);
+  }
+};

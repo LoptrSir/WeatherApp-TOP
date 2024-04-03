@@ -15,6 +15,7 @@ export const gif = document.querySelector(".gif");
 export const defaultGifSearch = "random weather";
 export const gifyApiKey = "OLRY4DR4fNBTQXbcI1NBFibXOW6q39k7";
 
+
 //Functions
 export const fetchWeather = async (displayLocation, temperatureUnit) => {
   try {

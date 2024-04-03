@@ -2,6 +2,13 @@
 
   //TODO css styling
     // /Re-enable gifapi when finished with styling
+    //radiobutton background doesnt want to go transparent.
+    //Features to consider Adding 
+      //a google map?
+      //forecast 3/5day, hourly
+      //misc details: humidity, sunrise/set,  
+
+
 
 //website.js
 

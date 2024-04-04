@@ -1,64 +1,85 @@
 /* WeatherApp */
 /* style.css */
 
-:root {
-  --clr-primary: rgb(211, 149, 240);
-  --clr-light: #f4f4f4;
-  --clr-dark: #333;
-  --clr-warning: rgb(140, 11, 247);
-}
-
 *,
 *::before,
 *::after {
   font-family: inherit;
-  box-sizing: border-box;  /* borders can increase the affordance of interactive elements, if you’d rather address affordance differently */
+  box-sizing: border-box; /* borders can increase the affordance of interactive elements, if you’d rather address affordance differently */
   border: none;
-  color: rgb(46, 245, 11);
+  color: rgb(220, 234, 60);
 }
 
 html {
-  font-size: 62.5%; /* (62.5/100) * 16px = 10px */
-  -webkit-text-size-adjust: none; /* for iOS Safari */
-  text-size-adjust: none; /* for other mobile browsers */
+  /* font-size: 62.5%;  */
+  /* (62.5/100) * 16px = 10px */
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 img {
-  display: block; /* removes the little space underneath an image */
-  max-width: 100%; /* prevents image from blowing up its container */
+  display: block;
+  max-width: 100%;
 }
 
-input, input:focus, input:-webkit-autofill {
-  border: 1px solid rgb(46, 245, 11);
-   background-color: transparent;
+input,
+input:focus,
+input:-webkit-autofill {
+  border: 1px solid rgb(220, 234, 60);
+  background-color: transparent;
 }
 
-
-#background-container {
-  /* background-image: url('/src/images/STScI-01HGGZ5KSFGCS4EZ8SZCZM3AW3.png'); */
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-size: cover;
-   width: 100vw;
-   height: 100vh;
-   background-size: cover;
-   background-position: center;
-}
-
-/* default set of parameters for most buttons */
 .btn {
   cursor: pointer;
   background: 0;
-  border: 1px solid rgb(46, 245, 11);
+  border: 1px solid rgb(220, 234, 60);
   padding: 0.15em 0.15em;
   color: inherit;
 }
 
+#background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
 
-#search-location {
+.content {
+  position: relative;
   display: flex;
   flex-direction: column;
+}
+
+#welcome-header {
+  text-align: center;
+}
+
+.current-display {
+  margin-top: 2vh;
+  align-self: flex-start;
+}
+
+.current-conditions {
+  margin: 0;
+}
+
+#location-display {
+  margin-left: 4vw;
+  /* margin-top: 0.25em;
+  margin-bottom: 0.25em; */
+}
+
+#location-display > *:nth-child(-n+) {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#search-location {
+  margin-top: 2vh;
 }
 
 #search-location button {
@@ -67,18 +88,22 @@ input, input:focus, input:-webkit-autofill {
 }
 
 #location-input {
-  color: red;
-  margin-left: 0px;
+  color: rgb(220, 234, 60);
   width: 10vw;
 }
 
-/* .weather-api-link {
-  display: inline;
-  position: absolute;
-  bottom: 1vh;
-} */
+.gif {
+  margin-top: 1vh;
+  max-width: 25%;
+  /* max-height: 2%; */
+  height: auto;
+  margin-left: 18vw;
+}
+
 .credits {
-  display: inline;
+  display: flex;
   position: absolute;
-  bottom: 1vh;
+  bottom: -22vh;
+  text-align: left;
+  gap: 1em;
 }

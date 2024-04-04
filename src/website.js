@@ -2,6 +2,8 @@
 
   //TODO css styling
     // /Re-enable gifapi when finished with styling
+    //.credits wont stay in one specific location at the bottom
+    //Manage gif size to be fairly consistent final size regardless of original size
     //radiobutton background doesnt want to go transparent.
     //Features to consider Adding 
       //a google map?
@@ -32,7 +34,7 @@ export function myFooter() {
 }
 
 export function initializeSite() {
-fetchWeather(currentLocationUrl, 'fahrenheit');
+// fetchWeather(currentLocationUrl, 'fahrenheit');
 attachEventListeners(); 
 myFooter();
 }

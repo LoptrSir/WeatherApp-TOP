@@ -8,57 +8,67 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="background-container">
+    <div id="background-container"></div>
       <div class="content">
-        <h1>Welcome to my weather app</h1>
+        <h1 id="welcome-header">Welcome to my weather app</h1>
         <div class="current-display">
-          <h2 class="display-current-conditions header">
+            <div class="current-location-details">
+          <h2 class="current-conditions">
             Current Conditions for:
           </h2>
-          <h2 class="current-location header"></h2>
-          <h3 class="current-condition header"></h3>
-          <h3 class="current-temp header"></h3>
+          <div id="location-display">
+          <p class="current-location header"></p>
+          <p class="current-condition header"></p>
+          <p class="current-temp header"></p>
+        </div>
+        </div>
           <form id="search-location">
             <label for="location-input">Search weather by location:</label>
-            <input type="text" id="location-input" name="location-input" />
-            <button type="submit" class="btn">Search</button>
+            <div class="search-display">
+              <input type="text" id="location-input" name="location-input" />
+              <button type="submit" class="btn">Search</button>
+            </div>
+          </form>
+
+          <form id="temp-conversion">
+            <label for="fahrenheit">Fahrenheit</label>
+            <input
+              type="radio"
+              id="fahrenheit"
+              name="temperature"
+              value="fahrenheit"
+              checked
+            />
+            <label for="celsius">Celsius</label>
+            <input
+              type="radio"
+              id="celsius"
+              name="temperature"
+              value="celsius"
+            />
           </form>
         </div>
-        <form id="temp-conversion">
-          <label for="fahrenheit">Fahrenheit</label>
-          <input
-            type="radio"
-            id="fahrenheit"
-            name="temperature"
-            value="fahrenheit"
-            checked
-          />
-          <label for="celsius">Celsius</label>
-          <input type="radio" id="celsius" name="temperature" value="celsius" />
-        </form>
-
         <img
           src="#"
           alt="Random GIF based on the current conditions"
           class="gif"
         />
-      </div>
 
-      <div class="credits">
-        <p class="weather-api-link">
-          Powered by:
-          <a href="https://www.weatherapi.com/" title="Free Weather API"
-            >WeatherAPI.com</a
-          >
-        </p>
-        <p class="jwst">
-          JWST images credit:<a href="https://webbtelescope.org/"
-            >webbtelescope.org</a
-          >
-        </p>
-      </div>
-    
-    <div class="footer"></div>
-</div>
+        <div class="credits">
+          <p class="weather-api-link">
+            Powered by:
+            <a href="https://www.weatherapi.com/" title="Free Weather API"
+              >WeatherAPI.com</a
+            >
+          </p>
+          <p class="jwst">
+            JWST images credit:<a href="https://webbtelescope.org/"
+              >webbtelescope.org</a
+            >
+          </p>
+        </div>
+      
+      <div class="footer"></div>
+    </div>
   </body>
 </html>

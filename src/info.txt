@@ -1,0 +1,16 @@
+WeatherApp
+-started 3/27/24
+
+Credits: 
+    WeatherAPI.com, JWST Images: https://webbtelescope.org/copyright
+
+4/9 1254: Webpack complete, gif size control created, Generally content with the product at this point.  There are a few things I'd like to sort out. but I am now chasing the 5% (that doesn't matter) that prevents me from moving on to the next project.
+4/4 1530: styling layout mostly set. Having issues with .credits being placed at the bottom without moving due to other elements changing.
+4/3 1309: added random JWST images as background, added credit for images, sized images and properties for background display, modified font color for visibility.
+4/2 1335 modules set and function. Working on styling. WeatherAPI placed at bottom.
+3/29 1606: broken up into modules. search worked but clicking radiobutton triggered to defaultlocation. modifying this to keep currentLocation in place is now causing search to throw error assignment to constant variable.  the declaration is let not const,, will try again tomorrow.
+1325: fixes made: input field clears after submit, temp change radios keep current location.
+1305: added random gif based on location condition.
+1053: temp radiobuttons work, 
+3/28 1304: got carried away banging out code and forgot to commit prior work. copied current code into new file website2.js, reverted website.js back to yesterday and committed.
+3/27 1516: Generated basic files.  fetchWeather() works on default url at this point.  

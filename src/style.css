@@ -5,14 +5,12 @@
 *::before,
 *::after {
   font-family: inherit;
-  box-sizing: border-box; /* borders can increase the affordance of interactive elements, if you’d rather address affordance differently */
+  box-sizing: border-box; 
   border: none;
   color: rgb(220, 234, 60);
 }
 
 html {
-  /* font-size: 62.5%;  */
-  /* (62.5/100) * 16px = 10px */
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
@@ -27,7 +25,13 @@ input:focus,
 input:-webkit-autofill {
   border: 1px solid rgb(220, 234, 60);
   background-color: transparent;
+  cursor: pointer;
 }
+
+/* form#temp-conversion input[type="radio"] {
+  background-color: transparent;
+  border: 1px solid rgb(220, 234, 60);
+} */
 
 .btn {
   cursor: pointer;
@@ -69,8 +73,6 @@ input:-webkit-autofill {
 
 #location-display {
   margin-left: 4vw;
-  /* margin-top: 0.25em;
-  margin-bottom: 0.25em; */
 }
 
 #location-display > *:nth-child(-n+) {
@@ -94,16 +96,22 @@ input:-webkit-autofill {
 
 .gif {
   margin-top: 1vh;
-  max-width: 25%;
-  /* max-height: 2%; */
+  max-width: 30vw;
+  max-height: 30vh;
+  width: auto;
   height: auto;
   margin-left: 18vw;
+  border-radius: 1em;
 }
 
 .credits {
   display: flex;
-  position: absolute;
-  bottom: -22vh;
+  position: fixed;
+  bottom: 1em;
   text-align: left;
   gap: 1em;
+}
+
+.credits a {
+  color: blue;
 }

@@ -1,6 +1,9 @@
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   mode: "development",
-  watch: true, //Automatically updates files for minor programing changes after Webpack creates the build.
+  watch: true, //Automatically updates files for minor programming changes after Webpack creates the build.
   entry: {
     index: "./src/index.js",
   },
@@ -24,6 +27,10 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },

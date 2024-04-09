@@ -1,24 +1,18 @@
 //WeatherApp
 
-  //TODO css styling
-    // /Re-enable gifapi when finished with styling
-    //.credits wont stay in one specific location at the bottom
-    //Manage gif size to be fairly consistent final size regardless of original size
-    //radiobutton background doesnt want to go transparent.
-    //Features to consider Adding 
-      //a google map?
-      //forecast 3/5day, hourly
-      //misc details: humidity, sunrise/set,  
-
-
+//TODO 
+//radiobutton background doesnt want to go transparent. Does this require a custom 'check box' like in the toto app?
+// search field changes to white if selected a 'browser saved search'
+//Features to consider Adding
+//a google map?
+//forecast 3/5day, hourly
+//misc details: humidity, sunrise/set,
 
 //website.js
 
 //Imports
-import {fetchWeather} from './weather.js'
-import {attachEventListeners,
-        currentLocationUrl
-} from './ui.js'
+import { fetchWeather } from "./weather.js";
+import { attachEventListeners, defaultLocation } from "./ui.js";
 
 export function myFooter() {
   const footer = document.querySelector(".footer");
@@ -34,9 +28,8 @@ export function myFooter() {
 }
 
 export function initializeSite() {
-// fetchWeather(currentLocationUrl, 'fahrenheit');
-attachEventListeners(); 
-myFooter();
+  fetchWeather(defaultLocation, "fahrenheit");
+  attachEventListeners();
+  myFooter();
 }
 
-initializeSite();

@@ -26,9 +26,20 @@ function displayBackgroundImage() {
     "/STScI-01HQ6CGZVBNNQWRMQ13F6ZVB4J.png",
     "/STScI-01HRD3BSQ4GNW2KN7J3G5BPBVR.png",
   ];
-  const randomIndex = Math.floor(Math.random() * backgroundImageFiles.length);
-  const randomImageUrl = "/src/images" + backgroundImageFiles[randomIndex];
+  const backgroundImageUrls = [`https://stsci-opo.org/STScI-01HMA4QVKMBJH0PM4YX6RSH532.png`,
+  `https://stsci-opo.org/STScI-01HGGZ5KSFGCS4EZ8SZCZM3AW3.png`,
+  `https://stsci-opo.org/STScI-01HBBME94CY086ZBKTRQ3PT4ZW.png`,
+  `https://stsci-opo.org/STScI-01H82G26M4BDN8WRZY5MR3D21E.png`,
+  `https://stsci-opo.org/STScI-01H4491XZTYDDPRGBBNC2WRP99.png`,
+  `https://stsci-opo.org/STScI-01H2TX76K5HBCEP0MCHDDWV28A.jpg`,
+  `https://stsci-opo.org/STScI-01GTWAT27H23RTMB84Y37KFRWJ.png`];
+  // const randomIndex = Math.floor(Math.random() * backgroundImageFiles.length);
+  // const randomImageUrl = "src/images" + backgroundImageFiles[randomIndex];
+  // backgroundContainer.style.backgroundImage = `url(${randomImageUrl})`;
+  const randomIndex = Math.floor(Math.random() * backgroundImageUrls.length);
+  const randomImageUrl = backgroundImageUrls[randomIndex];
   backgroundContainer.style.backgroundImage = `url(${randomImageUrl})`;
+  console.log('RandomUrl:', randomImageUrl);
 }
 
 //Event Listeners

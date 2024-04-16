@@ -1,12 +1,14 @@
 //WeatherApp
 
 //TODO 
+// fix gif width, its stretched out.
 //radiobutton background doesnt want to go transparent. Does this require a custom 'check box' like in the toto app?
 // search field changes to white if selected a 'browser saved search'
 //Features to consider Adding
 //a google map?
 //forecast 3/5day, hourly
 //misc details: humidity, sunrise/set,
+//move away from using url's to JWST images once hosting is figured out.
 
 //website.js
 

@@ -4,6 +4,10 @@ WeatherApp
 Credits: 
     WeatherAPI.com, JWST Images: https://webbtelescope.org/copyright
 
+4/16 1419: Resolved background display issue. Need to modify this after figuring out hosting solution for my pages. Pushig to git then publishing webpage.
+4/11 1109: App works fine launched with live serve in VSCode. npm start and https://loptrsir.github.io/WeatherApp-TOP/ throw an error that background image is not found.  (ui.js 300) /src/image, src/image, ./src/images dont seem to make a difference.
+1049: deleted local folder and performed git clone from github. App is now working correctly.
+4/10 1319: an odyssey in trying to protect ApiKeys/Urls. Led to using .env which requires Node.js (currently not using).  Took a bit to get this unwound. Things appear to be working now but I need to get backgrounds working again. Will likely pull the repository from github as that version is working.
 4/9 1306: migrated dist files to main folder.
 1254: Webpack complete, gif size control created, Generally content with the product at this point.  There are a few things I'd like to sort out. but I am now chasing the 5% (that doesn't matter) that prevents me from moving on to the next project.
 4/4 1530: styling layout mostly set. Having issues with .credits being placed at the bottom without moving due to other elements changing.
